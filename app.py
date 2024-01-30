@@ -2,6 +2,7 @@
 import openai
 import json
 import streamlit as st
+import os
 
 # use "streamlit run app.py"
 #functions
@@ -54,7 +55,8 @@ Below is the code snippet: (focus only on delete_folder_contents_and_add_none_fi
 def main():
 
     ##set the key
-    openai.api_key  =  get_key('keys.json')
+    #openai.api_key  =  get_key('keys.json') #place api key in .json file
+    openai.api_key  = os.getenv('OPENAI_API_KEY') #set api key in Environmentvariables
 
     #streamlit app
     title = ' <h2 style="color: aqua; text-align: center;">CODE REFACTOR 👨‍💻</h2>'
